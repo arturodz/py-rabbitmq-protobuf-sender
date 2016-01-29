@@ -1,0 +1,27 @@
+syntax = "proto3";
+package pb;
+
+message Log {
+  string service = 1;
+  string instance = 2;
+  string message = 3;
+  string trace = 4;
+  enum Level {
+    VERBOSE = 0;
+    INFORMATION = 1;
+    WARNING = 2;
+    ERROR = 3;
+    CRITICAL = 4;
+    EMERGENCY = 5;
+  }
+  Level level = 5;
+  enum Kind {
+    UNEXPECTED = 0;
+    DEBUGGING = 1;
+    MONITOR = 2;
+    SUCCESS = 3;
+    FAIL = 4;
+  }
+  Kind kind = 6;
+  int32 created_at = 7;
+}
